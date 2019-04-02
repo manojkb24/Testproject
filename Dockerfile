@@ -3,7 +3,9 @@ MAINTAINER Sam Gabrail
 
 RUN RUN echo '172.20.17.242 \t btpproxy.mphasis.com' >> /etc/hosts ; export http_proxy="http://blockchain.mphasis:hl1.4March5@btpproxy.mphasis.com:8080" ; echo $http_proxy ;
 
-RUN apk update && pip install bottle \
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+#RUN apk update && pip install bottle \
     && mkdir /app
 WORKDIR /app
 COPY . .
