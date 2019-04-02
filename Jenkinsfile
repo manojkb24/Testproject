@@ -21,9 +21,9 @@ node {
                 # docker login
                 echo "logging in to Dockerhub"
                 docker login -u ${manojkb123456} -p ${Manojkb46@gmail.com}
-                docker push samgabrail/sysdig-jenkins-dev:${GITID}
+                docker push manojkb123456/sysdig-jenkins-dev:${GITID}
                 # add image to sysdig_secure_images file
-                echo samgabrail/sysdig-jenkins-dev:${GITID} > sysdig_secure_images
+                echo manojkb123456/sysdig-jenkins-dev:${GITID} > sysdig_secure_images
             '''
         }
     }
@@ -33,8 +33,8 @@ node {
     stage('Push Successfully Scanned Image to Prod') {
         sh '''
             # docker tag the dev image to prod image
-            docker tag samgabrail/sysdig-jenkins-dev:${GITID} samgabrail/sysdig-jenkins:${GITID}
-            docker push samgabrail/sysdig-jenkins:${GITID}           
+            docker tag manojkb123456/sysdig-jenkins-dev:${GITID} manojkb123456/sysdig-jenkins:${GITID}
+            docker push manojkb123456/sysdig-jenkins:${GITID}           
         '''
     }
     stage('Deploy App') {
