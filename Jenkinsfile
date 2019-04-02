@@ -16,11 +16,11 @@ node {
         '''
     }
     stage('Push Image to Dev') {
-        withCredentials([usernamePassword(credentialsId: 'docker-repository-credentials', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUsername')]) {
+        withCredentials([usernamePassword(credentialsId: 'manojkb123456', passwordVariable: 'Manojkb46@gmail.com', usernameVariable: 'manojkb123456')]) {
             sh '''
                 # docker login
                 echo "logging in to Dockerhub"
-                docker login -u ${dockerhubUsername} -p ${dockerhubPassword}
+                docker login -u ${manojkb123456} -p ${Manojkb46@gmail.com}
                 docker push samgabrail/sysdig-jenkins-dev:${GITID}
                 # add image to sysdig_secure_images file
                 echo samgabrail/sysdig-jenkins-dev:${GITID} > sysdig_secure_images
