@@ -19,9 +19,9 @@ node {
         withCredentials([usernamePassword(credentialsId: ' 643666d8-68cc-414e-b49a-f8797f77929f', passwordVariable: 'Manojkb46@gmail.com', usernameVariable: 'manojkb123456')]) {
             sh '''
                 # docker login
-                echo "logging in to Dockerhub"
+                echo "logging into Dockerhub"
 <<<<<<< HEAD
-               docker login -u manojkb123456 -p Manojkb46@gmail.com
+                docker login -u manojkb123456 -p Manojkb46@gmail.com
                 docker push manojkb123456/sysdig-jenkins-dev:${GITID}
 =======
                  docker login -u manojkb123456 -p Manojkb46@gmail.com
