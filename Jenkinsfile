@@ -20,13 +20,8 @@ node {
             sh '''
                 # docker login
                 echo "logging into Dockerhub"
-<<<<<<< HEAD
-                docker login -u manojkb123456 -p Manojkb46@gmail.com
-                docker push manojkb123456/sysdig-jenkins-dev:${GITID}
-=======
                  docker login -u manojkb123456 -p Manojkb46@gmail.com
                  docker push manojkb123456/sysdig-jenkins-dev:${GITID}
->>>>>>> a0003cf54a07cf02a7cdf047ec24a5be86176615
                 # add image to sysdig_secure_images file
                 echo manojkb123456/sysdig-jenkins-dev:${GITID} > sysdig_secure_images
             '''
