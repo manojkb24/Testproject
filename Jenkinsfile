@@ -12,7 +12,7 @@ node {
             #GITID=$(echo ${GIT_COMMIT} | cut -c1-7)
             #echo ${GITID}
             # build the demo using the existing Dockerfile and tag the image with the short git SHA
-            sudo docker build -t manojkb123456/sysdig-jenkins-dev:${GITID} .            
+            sudo docker build -t manoj123456/sysdig-jenkins-dev:${GITID} .            
         '''
     }
     stage('Push Image to Dev') {
