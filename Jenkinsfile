@@ -33,8 +33,8 @@ node {
     stage('Push Successfully Scanned Image to Prod') {
         sh '''
             # docker tag the dev image to prod image
-            docker tag manoj123456/sysdig-jenkins-dev:${GITID} manoj123456/sysdig-jenkins:${GITID}
-            docker push manoj123456/sysdig-jenkins:${GITID}           
+            sudo docker tag manoj123456/sysdig-jenkins-dev:${GITID} manoj123456/sysdig-jenkins:${GITID}
+            sudo docker push manoj123456/sysdig-jenkins:${GITID}           
         '''
     }
     stage('Deploy App') {
