@@ -12,12 +12,7 @@ node {
     environment {
         scannerHome = tool 'sonarqube installer'
     }
-    steps {
-        withSonarQubeEnv('sonarqube') {
-            sh "${scannerHome}/bin/sonar-scanner"
-        }
-        
-    }
+   
 }
     
     stage('Build Image') {
