@@ -4,6 +4,24 @@ node {
         env.GITID = GITHASH.take(7)
         sh "echo ${GITID}"
     }
+   
+    
+    
+    
+    stage('Sonarqube') {
+    environment {
+        scannerHome = tool 'SonarQubeScanner'
+    }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+        timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+        }
+    }
+}
+    
     stage('Build Image') {
         sh '''
             # find the short git SHA
