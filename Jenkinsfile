@@ -10,6 +10,7 @@ node {
     
     stage('Sonarqube') {
     environment {
+        #sonarqube installer is a user defined name for sonarscanner in jenkins 
         scannerHome = tool 'sonarqube installer'
     }
    
