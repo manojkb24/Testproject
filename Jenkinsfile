@@ -7,9 +7,14 @@ node {
  stage('SonarQube analysis') {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarqube installer';
-    withSonarQubeEnv('sonarqube') {
+    withSonarQubeEnv('sonarqube'){
       sh "${scannerHome}/bin/sonar-scanner"
     }
+     sonar.projectKey=1sample
+     Sonar.Projectname=1sample
+     Sonar.ProjectVersion=1.0
+sonar.sources= /var/lib/jenkins/workspace/1sample
+     
   }   
     
     
