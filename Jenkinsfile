@@ -4,17 +4,17 @@ node {
         env.GITID = GITHASH.take(7)
         sh "echo ${GITID}"
     }
-   
-    
-    
-    
-    stage('Sonarqube') {
-    environment {
-        #sonarqube installer is a user defined name for sonarscanner in jenkins 
-        scannerHome = tool 'sonarqube installer'
+ stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'sonarqube installer';
+    withSonarQubeEnv('sonarqube') {
+      sh "${scannerHome}/bin/sonar-scanner"
     }
+  }   
+    
+    
+    
    
-}
     
     stage('Build Image') {
         sh '''
@@ -39,23 +39,7 @@ node {
             '''
         }
     }
-    stage('Scanning Image') {
-        anchore 'sysdig_secure_images'
-    }
-    stage('Push Successfully Scanned Image to Prod') {
-        sh '''
-            # docker tag the dev image to prod image
-            sudo docker tag manoj123456/sysdig-jenkins-dev:${GITID} manoj123456/sysdig-jenkins:${GITID}
-            sudo docker push manoj123456/sysdig-jenkins:${GITID}           
-        '''
-    }
-    stage('Deploy App') {
-        sh '''
-            # deploy the app
-            gcloud container clusters get-credentials sysdig-cicd-cluster --zone us-east1-c --project vibrant-tree-219615
-            kubectl set image deployment/sysdig-jenkins sysdig-jenkins=samgabrail/sysdig-jenkins:${GITID}          
-        '''
-    }
+    
 }
 
 
