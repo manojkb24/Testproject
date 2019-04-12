@@ -11,7 +11,7 @@ node {
      sonar.projectKey=3sample
      Sonar.Projectname=sonarqube pipline
      Sonar.ProjectVersion=1.0
-sonar.sources= /var/lib/jenkins/workspace/1sample
+sonar.sources= /var/lib/jenkins/workspace/sonarqube pipline
      
      
     withSonarQubeEnv('sonarqube'){
