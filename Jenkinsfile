@@ -8,7 +8,7 @@ node {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarqube installer'; 
     withSonarQubeEnv('sonarqube'){
-        git url : 'https://github.com/manojkb24/java-python/blob/master/sonar-project.properties'
+        git url : 'https://github.com/manojkb24/Testproject/blob/master/sonar-project.properties'
         
       sh "${scannerHome}/bin/sonar-scanner"
     }
