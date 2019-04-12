@@ -8,11 +8,6 @@ node {
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonarqube installer';
      
-     sonar.projectKey=3sample
-     Sonar.Projectname=sonarqube pipline
-     Sonar.ProjectVersion=1.0
-sonar.sources= /var/lib/jenkins/workspace/sonarqube pipline
-     
      
     withSonarQubeEnv('sonarqube'){
       sh "${scannerHome}/bin/sonar-scanner"
